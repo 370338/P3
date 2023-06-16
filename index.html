@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coinage Testing Page</title>
+  </head>
+  <body>
+    <h1>Coinage Testing Page</h1>
+    <form onsubmit="calculateCoinage(); return false;">
+      <label>Amount (in cents):</label>
+      <input type="number" id="amount" required>
+      <button type="submit">Calculate Coinage</button>
+    </form>
+    <div id="coinage"></div>
+    <script>
+      function calculateCoinage() {
+        const amount = document.getElementById('amount').value;
+        fetch(`/calculate?amount=${amount}`)
+          .then((response) => response.json())
+          .then((coinage) => {
+            const coinageString = `Quarters: ${coinage.quarters}, Dimes: ${coinage.dimes}, Nickels: ${coinage.nickels}, Pennies: ${coinage.pennies}`;
+            document.getElementById('coinage').innerText = coinageString;
+          })
+          .catch((error) => console.error(error));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "name": "coinage-web-server",
+    "version": "1.0.0",
+    "description": "A web server that calculates coinage for a given amount of cents",
+    "main": "p3-server.js",
+    "dependencies": {
+      "http": "^0.0.1",
+      "url": "^0.11.0"
+    }
+  }
